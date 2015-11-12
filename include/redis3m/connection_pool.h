@@ -107,7 +107,7 @@ namespace redis3m {
     private:
         connection_pool(const std::string& sentinel_host,
                         const std::string& master_name,
-                        unsigned int sentinel_port);
+                        unsigned int sentinel_port, unsigned int max_size);
         connection::ptr_t create_slave_connection();
         connection::ptr_t create_master_connection();
         connection::ptr_t sentinel_connection();
@@ -119,6 +119,7 @@ namespace redis3m {
 
         std::vector<std::string> sentinel_hosts;
         unsigned int sentinel_port;
+        unsigned int max_size;
         std::string master_name;
         std::string password;
         unsigned int _database;
