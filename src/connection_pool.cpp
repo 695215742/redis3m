@@ -25,14 +25,14 @@
 #endif
 
 using namespace redis3m;
-
 connection_pool::connection_pool(const std::string& sentinel_host,
                                  const std::string& master_name,
-                                 unsigned int sentinel_port):
+                                 unsigned int sentinel_port, unsigned int max_size):
 master_name(master_name),
 sentinel_port(sentinel_port),
 password(""),
-_database(0)
+_database(0),
+max_size(max_size)
 {
 #ifndef NO_BOOST
     boost::algorithm::split(sentinel_hosts, sentinel_host, boost::is_any_of(","), boost::token_compress_on);
