@@ -117,7 +117,7 @@ void connection_pool::put(connection::ptr_t conn)
         std::lock_guard<std::mutex> lock(access_mutex);
         if(connections.size() >= max_size)
         {
-        	connection::release( conn );
+        	//do nothing
         }
         else
         {
