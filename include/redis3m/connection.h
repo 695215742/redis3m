@@ -37,11 +37,6 @@ public:
     {
         return ptr_t(new connection(host, port));
     }
-    
-    inline static void release(connection* conn)
-    {
-        delete conn;
-    }
 
     /**
      * @brief Create and open a new connection
