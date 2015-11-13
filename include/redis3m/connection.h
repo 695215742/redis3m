@@ -40,7 +40,6 @@ public:
     
     inline static void release(connection* conn)
     {
-        redisFree(conn->c);
         delete conn;
     }
 
